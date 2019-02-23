@@ -1,10 +1,10 @@
 ---
 description: >-
-  This ban command allows you to ban an Discord user from a Discord server with
-  a specific reason
+  In this tutorial you will learn how to create a ban command for your Discord
+  bot
 ---
 
-# Create a ban command
+# Ban command
 
 ## What is our goal with this new command?
 
@@ -209,5 +209,5 @@ In the new code that we've added, we give your bot the possibility to modlog all
 
 I hope I could help you a little bit with your bot and the setup of your ban command. If you have any questions, you can join [our Discord server.](https://lenoxbot.com/discord)
 
-[**About me**](../about-me.md)\*\*\*\*
+[**About me**](../../../about-me.md)\*\*\*\*
 
