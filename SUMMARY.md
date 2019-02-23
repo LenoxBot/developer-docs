@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Programming Tutorials](README.md)
+* [About me](about-me.md)
 
 ## Discord.js Tutorials
 

@@ -6,13 +6,28 @@ description: >-
 
 # Create a ban command
 
-First of all we start with the basic setup of our new command.
+## What is our goal with this new command?
+
+Our goal is to program a **good and well-developed** ban command. It gives you and your moderators the possibility to ban a Discord server member via your bot with a **specific** reason. All ban details can be posted in a pre-defined Discord channel \(Modlog\).
+
+## What will the command look like when we are done?
+
+`?ban <@USER/UserID> <reason for the ban>`
+
+_**Examples:**_
+
+* ?ban @Monkeyyy11\#0001 Spam
+* ?ban 238590234135101440 Spam
+
+## Let's start with programming
+
+**First of all**, we start with the basic setup of our new command.
 
 ```javascript
 const args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
 ```
 
-With this line of code we get all the content behind the prefix with the command. 
+With this line of code we get all the content **behind** the prefix with the commandname. In this case, everything behind `?ban`.
 
 _**Example:**_ If you enter the command in a Discord channel `?ban @Monkeyyy11#0001 Spam` , **args** will be `@Monkeyyy11#0001 Spam`.
 
@@ -25,9 +40,9 @@ const user = message.mentions.users.first(); // returns the user object if an us
 const banReason = args.slice(1).join(' '); // Reason of the ban (Everything behind the mention)
 ```
 
-In the third line of code we request the first mention of a Discord user in this message. If there is an user mention, you will receive the user object of this Discord user.
+In the third line of code we request the first mention of a Discord user from the message object. If there is an user mention, you will receive the user object of this Discord user.
 
-In the next line we slice the ban reason from our arguments behind the command.
+In the next line we slice the ban reason from our arguments of the command \(args in this case\).
 
 
 
@@ -52,7 +67,9 @@ if (!user) {
 	}
 ```
 
-Here we have a very nice feature that allows your ban command to enter an userID of a Discord server member instead of mentioning him. First we check if the message contains a user mention, if not, then check if a valid userID has been entered. If no, the client returns an error in form of a message. If yes, the client overwrites the **`user`**variable with the new user Object.
+Here we have a very nice feature that allows your ban command to enter an **userID** of a Discord server member instead of mentioning him. 
+
+First we check if the message contains an user mention, **if not;** then check if a valid userID has been entered. **If not;** the client returns an error in form of a Discord channel message. **If yes;** the client overwrites the `user`variable with the **new user object**.
 
 
 
@@ -81,13 +98,13 @@ if (!reason) return message.reply('You forgot to enter a reason for this ban!');
 if (!message.guild.member(user).bannable) return message.reply('You can\'t ban this user because you the bot has not sufficient permissions!'); // Check if the user is bannable with the bot's permissions
 ```
 
-3 different checks have been added here. 
+**3 different checks have been added here before we continue with further code.**
 
-The first if checks if the user variable is the same user object as the message author object.
+The **first if**, checks if the user variable is the same user object as the message author object.
 
-The next code line checks if the message author hasn't forgotten to enter a reason for the ban of the Discord user.
+The **next code line** checks if the message author hasn't forgotten to enter a reason for the ban of the Discord user.
 
-The last line that we've added checks if the bot has even enough permissions to ban this Discord user because otherwise the following code that we will cover as next will not work.
+The **last line** that we've added, checks if the bot has even **enough permissions** to ban this Discord user because otherwise the following code that we will cover as next will **not** work.
 
 
 
@@ -126,9 +143,9 @@ message.channel.send({
 }); // Sends a confirmation embed that the user has been successfully banned
 ```
 
-With the new code in line 24, we ban the Discord user from the current Discord server where we enter the bot command. 
+With the new code in **line 24**, we ban the Discord user from the **current** Discord server where we enter the bot command. 
 
-After this we send a confirmation RichEmbed in the current channel where we entered our command to confirm that the user has been successfully banned.
+After this, we send a confirmation RichEmbed in the **current** channel where we entered our command to confirm that the user has been **successfully** banned.
 
 
 
@@ -186,15 +203,13 @@ if (!client.channels.get(modlogChannelID )) return undefined; // Check if the mo
 }
 ```
 
-In the new code we give your bot the possibility to modlog all details of the ban in a Discord channel of your choice.
+In the new code that we've added, we give your bot the possibility to modlog all details of the ban in a Discord channel of **your choice**.
 
+## Conclusion
 
+I hope I could help you a little bit with your bot and the setup of your ban command. If you have any questions, you can join [our Discord server.](https://lenoxbot.com/discord)
 
+Informations about me:
 
-
-
-
-_\*\*\*\*_
-
-
+{% page-ref page="../about-me.md" %}
 
