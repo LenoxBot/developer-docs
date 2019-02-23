@@ -209,7 +209,5 @@ In the new code that we've added, we give your bot the possibility to modlog all
 
 I hope I could help you a little bit with your bot and the setup of your ban command. If you have any questions, you can join [our Discord server.](https://lenoxbot.com/discord)
 
-Informations about me:
-
-{% page-ref page="../about-me.md" %}
+[**About me**](../about-me.md)\*\*\*\*
 
